@@ -5,6 +5,7 @@ class Racer
   field :date_of_birth, as: :dob, type: Date
 
   embeds_one :primary_address, as: :addressable, class_name: "Address"
+  has_one :medical_record
 
   def races
     Contest.where(:"entrants.racer_id"=>self.id)
