@@ -6,6 +6,7 @@ class Entrant
   field :secs, type: Float
 
   belongs_to :racer, class_name: "Racer"
+  embedded_in :contest
 
   before_create do |doc|
     doc.name = "#{doc.racer.last_name}, #{doc.racer.first_name}"
