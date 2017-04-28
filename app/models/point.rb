@@ -26,6 +26,9 @@ class Point
       end
     else object
     end
+  end
 
+  def self.evolve(object)
+    Point.mongoize(object)
   end
 end
