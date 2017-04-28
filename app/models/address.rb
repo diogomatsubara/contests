@@ -6,5 +6,5 @@ class Address
   field :country, type: String
   field :geolocation, type: Point
 
-  embedded_in :racer, class_name: "Racer"
+  embedded_in :addressable, polymorphic: true
 end
