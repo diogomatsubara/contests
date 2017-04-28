@@ -4,4 +4,10 @@ class Entrant
   field :name, type: String
   field :group, type: String
   field :secs, type: Float
+
+  belongs_to :racer, class_name: "Racer"
+
+  before_create do |doc|
+    doc.name = "#{doc.racer.last_name}, #{doc.racer.first_name}"
+  end
 end
