@@ -5,4 +5,9 @@ class Racer
   field :date_of_birth, as: :dob, type: Date
 
   embeds_one :primary_address, as: :addressable, class_name: "Address"
+
+  def races
+    Contest.where(:"entrants.racer_id"=>self.id)
+           .map {|c| c.entrants.where(:"racer_id"=>self.id).first}
+  end
 end
