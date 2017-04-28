@@ -6,4 +6,8 @@ class Point
     @longitude = longitude
     @latitude = latitude
   end
+
+  def mongoize
+    {:type=>"Point", :coordinates=>[@longitude, @latitude]}
+  end
 end
